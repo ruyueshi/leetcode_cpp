@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 HEADERS += \
-    solution006.h
+    solution006.h \
+    solution007.h
 
 SOURCES += \
     main.cpp
