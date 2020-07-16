@@ -1,3 +1,8 @@
+/*
+ * ZigZag Conversion
+ * Source: https://leetcode-cn.com/problems/zigzag-conversion/
+ */
+
 #ifndef SOLUTION006_H
 #define SOLUTION006_H
 

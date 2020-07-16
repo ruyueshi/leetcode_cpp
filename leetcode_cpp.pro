@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 HEADERS += \
+    solution005.h \
     solution006.h \
     solution007.h
 
