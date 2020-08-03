@@ -9,7 +9,8 @@ HEADERS += \
     src/solution007.h \
     src/solution008.h \
     src/solution009.h \
-    src/solution010.h
+    src/solution010.h \
+    src/solution013.h
 
 SOURCES += \
     src/main.cpp
