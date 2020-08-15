@@ -14,7 +14,7 @@ class solution020 {
 public:
     bool isValid(std::string s) {
         std::stack<char> stk;
-        for (int i = 0; i < s.length(); i++) {
+        for (size_t i = 0; i < s.length(); i++) {
             if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
                 stk.push(s[i]);
             } else {

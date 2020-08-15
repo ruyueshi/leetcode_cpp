@@ -24,7 +24,7 @@ public:
         do {
             width--;
             int temp_short = shorter_line;
-            for (int i = 0; i + width < height.size(); i++) {
+            for (size_t i = 0; i + width < height.size(); i++) {
                 if (height[i] > shorter_line || height[i + width] > shorter_line) {
                     int line = std::min(height[i], height[i + width]);
                     int temp_container = line * width;
@@ -47,7 +47,7 @@ public:
         do {
             width--;
             int current_max_shorter_line = 0;
-            for (int i = 0; i + width < height.size(); i++) {
+            for (size_t i = 0; i + width < height.size(); i++) {
                 if (height[i] > shorter_line || height[i + width] > shorter_line > shorter_line) {
                     int temp_min = std::min(height[i], height[i + width]);
                     if (temp_min > current_max_shorter_line) {

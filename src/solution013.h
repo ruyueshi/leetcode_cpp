@@ -105,7 +105,7 @@ public:
     int romanToInt3(std::string s) {
         int ans = 0;
         int pre = get_value(s[0]);
-        for (int i = 1; i < s.length(); i++) {
+        for (size_t i = 1; i < s.length(); i++) {
             int temp = this->get_value(s[i]);
             if (pre < temp) {
                 ans -= pre;
