@@ -51,6 +51,9 @@ public:
 
             int k = length - 1;
             for (int j = i + 1; j < length - 1; j++) {
+                if (nums[i] + nums[j] > 0) {
+                    break;
+                }
                 if (j > i + 1 && nums[j] == nums[j-1]) {
                     continue;
                 }
