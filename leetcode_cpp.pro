@@ -4,7 +4,6 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 HEADERS += \
-    src/solution016.h \
     src/timer.h \
     src/solution005.h \
     src/solution006.h \
@@ -17,6 +16,8 @@ HEADERS += \
     src/solution013.h \
     src/solution014.h \
     src/solution015.h \
+    src/solution016.h \
+    src/solution017.h \
     src/solution020.h \
 
 SOURCES += \
