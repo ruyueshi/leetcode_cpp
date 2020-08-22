@@ -1,4 +1,4 @@
-/*
+/**
  * ZigZag Conversion
  * Source: https://leetcode-cn.com/problems/zigzag-conversion/
  */

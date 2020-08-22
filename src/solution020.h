@@ -1,4 +1,4 @@
-/*
+/**
  * 20. Valid Parentheses
  * Source: https://leetcode-cn.com/problems/valid-parentheses/
  */

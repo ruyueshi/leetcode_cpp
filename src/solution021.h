@@ -1,4 +1,4 @@
-/*
+/**
  * 21. Merge Two Sorted Lists
  * Source: https://leetcode-cn.com/problems/merge-two-sorted-lists/
  */

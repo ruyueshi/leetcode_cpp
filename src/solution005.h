@@ -1,4 +1,4 @@
-/*
+/**
  * Longest Palindromic Substring
  * Source: https://leetcode-cn.com/problems/longest-palindromic-substring/
  * Dynamic programming

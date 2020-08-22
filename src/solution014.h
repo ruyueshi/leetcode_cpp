@@ -1,4 +1,4 @@
-/*
+/**
  * 14. Longest Common Prefix
  * Source: https://leetcode-cn.com/problems/longest-common-prefix/
  */

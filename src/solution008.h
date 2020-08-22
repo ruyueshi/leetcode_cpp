@@ -1,4 +1,4 @@
-/*
+/**
  * String to Integer (atoi)
  * Source: https://leetcode-cn.com/problems/string-to-integer-atoi/
  */

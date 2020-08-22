@@ -1,4 +1,4 @@
-/*
+/**
  * Palindrome Number
  * Source: https://leetcode-cn.com/problems/palindrome-number/
  */

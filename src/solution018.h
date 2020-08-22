@@ -1,4 +1,4 @@
-/*
+/**
  * 18. 4Sum
  * Source: https://leetcode-cn.com/problems/4sum/
  */

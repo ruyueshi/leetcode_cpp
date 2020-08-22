@@ -1,4 +1,4 @@
-/*
+/**
  * 15. 3Sum
  * Source: https://leetcode-cn.com/problems/3sum/
  */

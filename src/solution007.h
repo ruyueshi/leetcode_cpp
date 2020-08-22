@@ -1,4 +1,4 @@
-/*
+/**
  * Reverse Integer
  * Source: https://leetcode-cn.com/problems/reverse-integer/
  */
