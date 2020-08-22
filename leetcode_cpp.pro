@@ -5,6 +5,7 @@ CONFIG -= qt
 
 HEADERS += \
     src/solution018.h \
+    src/solution019.h \
     src/timer.h \
     src/solution005.h \
     src/solution006.h \
