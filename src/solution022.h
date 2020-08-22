@@ -22,7 +22,7 @@ private:
     size_t str_length;
 
     void backtrack(std::string sub_parenthesis, int left_num) {
-        if (left_num < sub_parenthesis.length()/2.0) {
+        if (left_num < sub_parenthesis.length()/2.0 || left_num > this->str_length/2.0) {
             return;
         }
         if (sub_parenthesis.length() == this->str_length) {
