@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 class solution5495 {
 public:

@@ -1,6 +1,6 @@
-#include "src/solution5495.h"
+#include "src/solution5496.h"
 
 int main() {
-    test_solution5495();
+    test_solution5496();
     return 0;
 }

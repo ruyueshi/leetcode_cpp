@@ -23,6 +23,7 @@ HEADERS += \
     src/solution021.h \
     src/solution022.h \
     src/solution5495.h \
+    src/solution5496.h \
     src/timer.h
 
 SOURCES += \
