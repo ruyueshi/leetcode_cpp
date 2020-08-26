@@ -19,7 +19,7 @@ struct ListNode {
 
 class solution021 {
 public:
-    // 8 ms, 14.5 MB
+    // 8ms, 14.5MB
     ListNode* mergeTwoLists1(ListNode* l1, ListNode* l2) {
         if (!l1 || !l2) {
             return !l1 ? l2 : l1;
@@ -65,7 +65,7 @@ public:
         return head;
     }
 
-    // 8 ms, 14.2 MB, which takes up less memory
+    // 8ms, 14.2MB, which takes up less memory
     ListNode* mergeTwoLists2(ListNode* l1, ListNode* l2) {
         if (!l1 || !l2) {
             return !l1 ? l2 : l1;
@@ -103,6 +103,21 @@ public:
         }
         return head;
     }
+
+    // 4ms, 14.4MB with Recursion
+    ListNode* mergeTwoLists3(ListNode* l1, ListNode* l2) {
+        if (!l1) {
+            return l2;
+        } else if (!l2) {
+            return l1;
+        } else if (l1->val <= l2->val) {
+            l1->next = this->mergeTwoLists3(l1->next, l2);
+            return l1;
+        } else {
+            l2->next = this->mergeTwoLists3(l1, l2->next);
+            return l2;
+        }
+    }
 };
 
 void test_solution021() {
@@ -118,7 +133,7 @@ void test_solution021() {
         p2->next = new ListNode(num2[i]);
         p2 = p2->next;
     }
-    ListNode *ans = s.mergeTwoLists2(l1, l2);
+    ListNode *ans = s.mergeTwoLists3(l1, l2);
     while (ans) {
         std::cout << ans->val << "->";
         ans = ans->next;
