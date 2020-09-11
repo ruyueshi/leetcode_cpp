@@ -22,6 +22,7 @@ HEADERS += \
     src/solution020.h \
     src/solution021.h \
     src/solution022.h \
+    src/solution023.h \
     src/solution5495.h \
     src/solution5496.h \
     src/solution5497.h \
