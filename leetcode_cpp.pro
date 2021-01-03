@@ -1,5 +1,5 @@
 #TEMPLATE = app
-#CONFIG += console c++11
+CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
@@ -26,7 +26,8 @@ HEADERS += \
     src/solution5495.h \
     src/solution5496.h \
     src/solution5497.h \
-    src/timer.h
+    src/timer.h \
+    src/solution027.h
 
 SOURCES += \
     src/main.cpp \
