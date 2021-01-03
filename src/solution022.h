@@ -37,7 +37,7 @@ private:
     }
 };
 
-void test_solution022() {
+static void test_solution022() {
     solution022 s;
     std::vector<std::string> ans = s.generateParenthesis(3);
     for (const auto & str : ans) {

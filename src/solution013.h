@@ -133,7 +133,7 @@ private:
     }
 };
 
-void test_solution013() {
+static void test_solution013() {
     solution013 s;
     std::cout << s.romanToInt2("III") << std::endl;
     std::cout << s.romanToInt2("IV") << std::endl;

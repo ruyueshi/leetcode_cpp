@@ -35,7 +35,7 @@ public:
     }
 };
 
-void test_solution023() {
+static void test_solution023() {
     solution023 s;
     int num[] = {1,2,3,4};
     ListNode *l = new ListNode(num[0]);

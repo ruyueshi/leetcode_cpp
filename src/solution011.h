@@ -81,7 +81,7 @@ public:
     }
 };
 
-void test_solution011() {
+static void test_solution011() {
     solution011 s;
     std::vector<int> height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
     std::vector<int> height1;

@@ -50,7 +50,7 @@ public:
     }
 };
 
-void test_solution018() {
+static void test_solution018() {
     solution018 s;
     int target = -11;
 //    std::vector<int> nums = {1, 0, -1, 0, -2, 2};

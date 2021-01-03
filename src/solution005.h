@@ -79,7 +79,7 @@ public:
     }
 };
 
-void test_solution005() {
+static void test_solution005() {
     solution005 s;
     std::cout << s.longestPalindrome2("babad") << std::endl;
     std::string str;

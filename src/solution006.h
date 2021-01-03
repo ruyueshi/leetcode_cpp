@@ -36,7 +36,7 @@ public:
     }
 };
 
-void test_solution006() {
+static void test_solution006() {
     solution006 s;
     std::cout << s.convert("PAYPALISHIRING", 3) << std::endl;
     std::cout << s.convert("PAYPALISHIRING", 4) << std::endl;

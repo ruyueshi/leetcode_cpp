@@ -38,7 +38,7 @@ public:
     }
 };
 
-void test_solution020() {
+static void test_solution020() {
     solution020 s;
     std::string str[5] = {"()", "(){}[]", "(]", "([)]", "{[]}"};
     for (auto &i : str) {

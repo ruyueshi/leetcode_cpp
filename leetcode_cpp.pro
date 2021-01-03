@@ -27,7 +27,8 @@ HEADERS += \
     src/solution5496.h \
     src/solution5497.h \
     src/timer.h \
-    src/solution027.h
+    src/solution027.h \
+    src/solution026.h
 
 SOURCES += \
     src/main.cpp \

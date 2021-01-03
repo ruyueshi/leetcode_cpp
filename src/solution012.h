@@ -28,7 +28,7 @@ public:
     }
 };
 
-void test_solution012() {
+static void test_solution012() {
     solution012 s;
     std::cout << s.intToRoman(3) << std::endl;
     std::cout << s.intToRoman(4) << std::endl;

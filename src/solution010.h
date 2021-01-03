@@ -52,7 +52,7 @@ private:
     int **f;
 };
 
-void test_solution010() {
+static void test_solution010() {
     solution010 s;
     std::cout << s.isMatch("aa", "a") << std::endl;
     std::cout << s.isMatch("aa", "a*") << std::endl;

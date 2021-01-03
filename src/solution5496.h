@@ -23,7 +23,7 @@ public:
     }
 };
 
-void test_solution5496() {
+static void test_solution5496() {
     solution5496 s;
     std::vector<int> piles = {9,8,7,6,5,1,2,3,4};
     std::cout << s.maxCoins(piles) << std::endl;

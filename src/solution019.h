@@ -43,7 +43,7 @@ public:
     }
 };
 
-void test_solution019() {
+static void test_solution019() {
     solution019 s;
     ListNode *head = new ListNode(1);
     ListNode *t = head;

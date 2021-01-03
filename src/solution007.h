@@ -21,7 +21,7 @@ public:
     }
 };
 
-void test_solution007() {
+static void test_solution007() {
     solution007 s;
     std::cout << s.reverse(1534236469) << std::endl;
     std::cout << s.reverse(-120) << std::endl;

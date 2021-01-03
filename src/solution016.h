@@ -45,7 +45,7 @@ public:
     }
 };
 
-void test_solution016() {
+static void test_solution016() {
     solution016 s;
     std::vector<int> nums = {-1,2,1,-4};
     int target = 1;

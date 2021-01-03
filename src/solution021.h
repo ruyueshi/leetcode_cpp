@@ -141,7 +141,7 @@ public:
     }
 };
 
-void test_solution021() {
+static void test_solution021() {
     solution021 s;
     int num1[] = {1,2,4};
     int num2[] = {1,3,5};

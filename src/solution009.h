@@ -36,7 +36,7 @@ public:
     }
 };
 
-void test_solution009() {
+static void test_solution009() {
     solution009 s;
     std::cout << s.isPalindrome2(9) << std::endl;
     std::cout << s.isPalindrome2(101) << std::endl;

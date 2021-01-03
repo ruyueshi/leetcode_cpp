@@ -41,7 +41,7 @@ public:
     }
 };
 
-void test_solution5495() {
+static void test_solution5495() {
     solution5495 s;
     std::vector<int> rounds = {1,3,5,7};
     std::vector<int> ans = s.mostVisited(7, rounds);

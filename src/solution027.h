@@ -25,7 +25,7 @@ public:
     }
 };
 
-void test_solution027() {
+static void test_solution027() {
     solution027 s;
     std::vector<int> nums = {0,1,2,2,3,0,4,2};
     int val = 2;

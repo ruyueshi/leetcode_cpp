@@ -36,7 +36,7 @@ public:
     }
 };
 
-void test_solution008() {
+static void test_solution008() {
     solution008 s;
     std::cout << s.myAtoi(" -12314er") << std::endl;
     std::string str;

@@ -106,7 +106,7 @@ private:
     }
 };
 
-void test_solution5497() {
+static void test_solution5497() {
     solution5497 s;
     std::vector<int> arr = {8,16,10,4,7,5,1,11,14,12,13,6,3,2,9,17,15,19,18};
     std::cout << s.findLatestStep1(arr, 7) << std::endl;

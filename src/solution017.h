@@ -37,7 +37,7 @@ private:
     std::vector<std::string> ans;
 };
 
-void test_solution017() {
+static void test_solution017() {
     solution017 s;
     auto ans = s.letterCombinations("27");
     for (auto &res : ans) {

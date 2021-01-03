@@ -52,7 +52,7 @@ public:
     }
 };
 
-void test_solution014() {
+static void test_solution014() {
     solution014 s;
     std::vector<std::string> strs = {"asbsc", "assjfshd", "asdasda"};
     std::cout << s.longestCommonPrefix2(strs) << std::endl;
