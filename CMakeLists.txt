@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(
         ${PROJECT_SOURCE_DIR}
-        ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/src src_list)

@@ -1,4 +1,4 @@
-#include "src/solution026.h"
+#include "include/solution026.h"
 
 int main() {
     test_solution026();

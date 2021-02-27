@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <cmath>
 
-#include "src/timer.h"
+#include "timer.h"
 
 
 class solution011 {

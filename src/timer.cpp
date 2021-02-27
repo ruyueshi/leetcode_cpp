@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "timer.h"
+#include "include/timer.h"
 
 timer::timer() {
     ftime(&this->start);

@@ -12,7 +12,7 @@
 #include <map>
 #include <algorithm>
 
-#include "src/timer.h"
+#include "timer.h"
 
 class solution015 {
 public:
