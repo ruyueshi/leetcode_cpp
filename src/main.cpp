@@ -1,6 +1,6 @@
-#include "include/solution028.h"
+#include "include/solution025.h"
 
 int main() {
-    test_solution028();
+    test_solution025();
     return 0;
 }
