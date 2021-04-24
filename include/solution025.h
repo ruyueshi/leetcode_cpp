@@ -38,7 +38,7 @@ public:
                 new_head = reversed_head;
                 new_tail = head;
             } else {
-                if (is_last) {
+                if (is_last) { // if current segment is the last remaining segment, reverse it again.
                     next_head = reversed_head;
                     this->reverseList(k, next_head, reversed_head, reversed_tail, is_last);
                 }
