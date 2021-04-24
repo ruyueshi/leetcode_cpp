@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 2.8)
 project(leetcode_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
