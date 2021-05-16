@@ -11,7 +11,7 @@ timer::timer() {
 
 int timer::cost() {
     ftime(&this->end);
-    int time = (end.time * 1000 + end.millitm) - (start.time * 1000 + end.millitm);
+    long time = (end.time * 1000 + end.millitm) - (start.time * 1000 + start.millitm);
     std::cout << "cost time " << time << " ms\n";
-    return time;
+    return (int)time;
 }
