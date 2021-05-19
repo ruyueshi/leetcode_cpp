@@ -1,4 +1,2 @@
-# leetcode_cpp
+# leetcode 算法练习
 
-#### 介绍
-算法练习
