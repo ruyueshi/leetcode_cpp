@@ -8,6 +8,7 @@
 #include <string>
 #include <algorithm>
 #include <numeric>
+#include <map>
 
 #include "src/utils/timer.h"
 
@@ -48,19 +49,29 @@ public:
             int i = p; // 起始位置
             std::vector<int> flags(words_num, 0);  // 0 1 2 三个档位
             std::vector<int> index(words_num, -1);
+            std::map<std::string, std::vector<int>> record;
             for (int j = 0; j < words_num; j++) {
                 std::string substring = s.substr(i + j * word_len, word_len);
-                std::vector<int> pos;
-                for (int k = 0; k < words_num; k++) {
+                std::vector<int> poses;
+                int k = 0;
+                for (; k < words_num; k++) {
                     if (words[k] == substring) {
-                        pos.push_back(k);
+                        poses.push_back(k);
                         if (flags[k] == 0) {
                             flags[k] = 1;
                             index[j] = k;
+                            record[substring].push_back(k);
                             break;
                         }
-                        index[j] = pos[0];
                     }
+                }
+                if (!poses.empty() && k == words_num) {
+                    int last_pos = record[substring].back();
+                    auto temp_pos = std::find(poses.begin(), poses.end(), last_pos);
+                    auto next_pos = temp_pos + 1;
+                    int index_j_value = next_pos == poses.end() ? poses.front() : *next_pos;
+                    index[j] = index_j_value;
+                    record[substring].push_back(index_j_value);
                 }
             }
             if (std::accumulate(flags.begin(), flags.end(), 0) == words_num)
@@ -78,17 +89,26 @@ public:
 
                 int j = words_num - 1;
                 std::string substring = s.substr(i + j * word_len, word_len);
-                std::vector<int> pos;
-                for (int k = 0; k < words_num; k++) {
+                std::vector<int> poses;
+                int k = 0;
+                for (; k < words_num; k++) {
                     if (words[k] == substring) {
-                        pos.push_back(k);
+                        poses.push_back(k);
                         if (flags[k] == 0) {
                             flags[k] = 1;
                             index[j] = k;
+                            record[substring].push_back(k);
                             break;
                         }
-                        index[j] = pos[0];
                     }
+                }
+                if (!poses.empty() && k == words_num) {
+                    int last_pos = record[substring].back();
+                    auto temp_pos = std::find(poses.begin(), poses.end(), last_pos);
+                    auto next_pos = temp_pos + 1;
+                    int index_j_value = next_pos == poses.end() ? poses.front() : *next_pos;
+                    index[j] = index_j_value;
+                    record[substring].push_back(index_j_value);
                 }
                 if (std::accumulate(flags.begin(), flags.end(), 0) == words_num)
                     res.push_back(i);
