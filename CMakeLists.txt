@@ -11,4 +11,5 @@ include_directories(
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/src src_list)
 
-add_executable(leetcode_cpp ${src_list})
+add_executable(leetcode_cpp src/main.cpp)
+add_executable(solution029 src/solution029.cpp)

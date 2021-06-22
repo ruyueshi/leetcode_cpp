@@ -14,7 +14,7 @@ public:
     int cost();
 
 private:
-    timeb start, end;
+    timeb start{}, end{};
 };
 
 
