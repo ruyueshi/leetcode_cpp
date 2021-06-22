@@ -3,9 +3,10 @@
  * Source: https://leetcode-cn.com/problems/divide-two-integers/
  */
 
+#include "src/utils/timer.h"
+
 #include <iostream>
 #include <cmath>
-#include <climits>
 
 class solution029 {
 public:
@@ -96,12 +97,15 @@ public:
 };
 
 int main() {
+    timer t;
     for (int i = -20; i < 20; i = i + 3) {
         for (int j = 2; j < 6; j++) {
-            std::cout << (solution029::divide_v2(i, j) == i / j) << " ";
+            t.reset();
+            std::cout << (solution029::divide_v2(i, j) == i / j) << ": " << t.cost() << "ms" << std::endl;
         }
     }
-    std::cout << std::endl;
-    std::cout << solution029::divide_v2(-2147483648, -1) << std::endl;
-    std::cout << solution029::divide_v2(-2147483648, 1) << std::endl;
+    t.reset();
+    std::cout << solution029::divide_v2(-2147483648, -1) << ": " << t.cost() << "ms" << std::endl;
+    t.reset();
+    std::cout << solution029::divide_v2(-2147483648, 1) << ": " << t.cost() << "ms" << std::endl;
 }

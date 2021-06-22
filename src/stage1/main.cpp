@@ -1,4 +1,4 @@
-#include "include/solution025.h"
+#include "solution025.h"
 
 int main() {
     test_solution025();
