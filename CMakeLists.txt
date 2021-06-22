@@ -17,3 +17,4 @@ add_executable(leetcode_cpp src/stage1/main.cpp)
 
 # stage2
 add_executable(solution029 src/stage2/solution029.cpp)
+add_executable(solution030 src/stage2/solution030.cpp)

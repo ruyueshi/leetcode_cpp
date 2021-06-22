@@ -108,4 +108,5 @@ int main() {
     std::cout << solution029::divide_v2(-2147483648, -1) << ": " << t.cost() << "ms" << std::endl;
     t.reset();
     std::cout << solution029::divide_v2(-2147483648, 1) << ": " << t.cost() << "ms" << std::endl;
+    return 0;
 }
