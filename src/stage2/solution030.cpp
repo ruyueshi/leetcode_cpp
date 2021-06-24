@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <numeric>
 #include <map>
+#include <set>
 
 #include "src/utils/timer.h"
 
@@ -37,89 +38,71 @@ public:
         return res;
     }
 
-    // v1中会有很多重复查找的过程，在v2中设置标志位，一旦查找完一轮，往下滑动一个单词长度的距离，只需比较新出现的子串是否是候选单词
-    static std::vector<int> findSubstring_v2(std::string s, std::vector<std::string> &words) {
-        int s_len = s.length(), words_num = words.size(), word_len = words[0].length();
+    // v1中会有很多重复查找的过程，在v2中设置标志位，一旦查找完一轮，往后滑动一个单词长度的距离，只需比较新出现的子串是否是候选单词
+    static std::vector<int> findSubstring_v2(const std::string &s, std::vector<std::string> &words) {
+        size_t s_len = s.length(), words_num = words.size(), word_len = words[0].length();
         if (s_len < words_num * word_len)
             return std::vector<int>();
 
-        int traverse_num = s_len - words_num * word_len + 1;
+        size_t traverse_num = s_len - words_num * word_len + 1;
         std::vector<int> res;
-        for (int p = 0; p < word_len; p++) {
-            int i = p; // 起始位置
-            std::vector<int> flags(words_num, 0);  // 0 1 2 三个档位
-            std::vector<int> index(words_num, -1);
-            std::map<std::string, std::vector<int>> record;
-            for (int j = 0; j < words_num; j++) {
+        std::map<std::string, std::vector<size_t>> poses_of_words;  // 记录每个单词在words中出现的位置
+        for (size_t i = 0; i < words_num; i++) {
+            poses_of_words[words[i]].push_back(i);
+        }
+
+        for (size_t p = 0; p < word_len; p++) {
+            size_t i = p; // 起始位置
+            std::map<std::string, size_t> current_pos_of_words;  // 记录各个单词当前的最新位置
+            std::vector<size_t> index(words_num, -1);  // 记录当前窗口的各个子串在words中出现的位置
+            for (size_t j = 0; j < words_num; j++) {
                 std::string substring = s.substr(i + j * word_len, word_len);
-                std::vector<int> poses;
-                int k = 0;
-                for (; k < words_num; k++) {
-                    if (words[k] == substring) {
-                        poses.push_back(k);
-                        if (flags[k] == 0) {
-                            flags[k] = 1;
-                            index[j] = k;
-                            record[substring].push_back(k);
-                            break;
+                for (int k = 0; k < words_num; k++) {
+                    if (substring == words[k]) {
+                        size_t next_pos = 0;
+                        auto it = current_pos_of_words.find(substring);
+                        if (it != current_pos_of_words.end()) {
+                            next_pos = (it->second + 1) % poses_of_words[substring].size();
                         }
+                        index[j] = poses_of_words[substring][next_pos];
+                        current_pos_of_words[substring] = next_pos;
+                        break;
                     }
-                }
-                if (!poses.empty() && k == words_num) {
-                    int last_pos = record[substring].back();
-                    auto temp_pos = std::find(poses.begin(), poses.end(), last_pos);
-                    auto next_pos = temp_pos + 1;
-                    int index_j_value = next_pos == poses.end() ? poses.front() : *next_pos;
-                    index[j] = index_j_value;
-                    record[substring].push_back(index_j_value);
                 }
             }
-            std::for_each(index.begin(), index.end(), [](const int s) { std::cout << s << " "; });
-            std::cout << std::endl;
-            if (std::accumulate(flags.begin(), flags.end(), 0) == words_num)
-                res.push_back(i);
+            // 判断 index 是否构成符合题意的解
+            std::set<size_t> set_index(index.begin(), index.end());
+            if (set_index.size() == words_num && set_index.find(-1) == set_index.end()) {
+                res.push_back(static_cast<int>(i));
+            }
 
+            // 接下来，每次往后移动一个单词长度的距离
             i += word_len;
             while (i < traverse_num) {
-                int first = index[0];
-                auto same = std::find(index.begin() + 1, index.end(), first);
-                if (first != -1 && same == index.end()) {
-                    flags[first] = false;
-                }
                 index.erase(index.begin());
                 index.push_back(-1);
-                if (first != -1 && !record[words[first]].empty())
-                    record[words[first]].erase(record[words[first]].begin());
-
-                int j = words_num - 1;
+                size_t j = words_num - 1;
                 std::string substring = s.substr(i + j * word_len, word_len);
-                std::vector<int> poses;
-                int k = 0;
-                for (; k < words_num; k++) {
-                    if (words[k] == substring) {
-                        poses.push_back(k);
-                        if (flags[k] == 0) {
-                            flags[k] = 1;
-                            index[j] = k;
-                            record[substring].push_back(k);
-                            break;
+                for (int k = 0; k < words_num; k++) {
+                    if (substring == words[k]) {
+                        size_t next_pos = 0;
+                        auto it = current_pos_of_words.find(substring);
+                        if (it != current_pos_of_words.end()) {
+                            next_pos = (it->second + 1) % poses_of_words[substring].size();
                         }
+                        index[j] = poses_of_words[substring][next_pos];
+                        current_pos_of_words[substring] = next_pos;
+                        break;
                     }
                 }
-                if (!poses.empty() && k == words_num) {
-                    int last_pos = record[substring].back();
-                    auto temp_pos = std::find(poses.begin(), poses.end(), last_pos);
-                    auto next_pos = temp_pos + 1;
-                    int index_j_value = next_pos == poses.end() ? poses.front() : *next_pos;
-                    index[j] = index_j_value;
-                    record[substring].push_back(index_j_value);
+                // 判断 index 是否构成符合题意的解
+                set_index.clear();
+                set_index = std::set<size_t>(index.begin(), index.end());
+                if (set_index.size() == words_num && set_index.find(-1) == set_index.end()) {
+                    res.push_back(static_cast<int>(i));
                 }
-                if (std::accumulate(flags.begin(), flags.end(), 0) == words_num)
-                    res.push_back(i);
 
                 i += word_len;
-                std::for_each(index.begin(), index.end(), [](const int s) { std::cout << s << " "; });
-                std::cout << std::endl;
             }
         }
         return res;
@@ -155,7 +138,7 @@ int main() {
                                   "bcabbcaabbccacacbabccacaababcbb",
                                   "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"};
     timer t;
-    for (int i = 0; i < L.size()-1; i++) {
+    for (int i = 0; i < L.size(); i++) {
         std::cout << "============================\n";
         t.reset();
         auto res = solution030::findSubstring_v2(W[i], L[i]);
