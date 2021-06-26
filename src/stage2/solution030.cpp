@@ -41,7 +41,7 @@ public:
         return res;
     }
 
-    // v1中会有很多重复查找的过程，在v2中设置标志位，一旦查找完一轮，往后滑动一个单词长度的距离，只需比较新出现的子串是否是候选单词
+    // v1 中会有很多重复查找的过程，在 v2 中设置标志位，一旦查找完一轮，往后滑动一个单词长度的距离，只需比较新出现的子串是否是候选单词
     // 756 ms, 16%; 97.4 MB, 17%
     static std::vector<int> findSubstring_v2(const std::string &s, std::vector<std::string> &words) {
         int s_len = s.length(), words_num = words.size(), word_len = words[0].length();
@@ -58,7 +58,7 @@ public:
         for (int p = 0; p < word_len; p++) {
             int i = p; // 起始位置
             std::unordered_map<std::string, int> current_pos_of_words;  // 记录各个单词当前的最新位置
-            std::vector<int> index(words_num, -1);  // 记录当前窗口的各个子串在words中出现的位置
+            std::vector<int> index(words_num, -1);  // 记录当前窗口的各个子串在 words 中出现的位置
             for (int j = 0; j < words_num; j++) {
                 std::string substring = s.substr(i + j * word_len, word_len);
                 for (int k = 0; k < words_num; k++) {
@@ -112,22 +112,21 @@ public:
         return res;
     }
 
-    // v2 建立单词到单词位置的映射，统计各个窗口中匹配到的单词出现的位置，匹配过程中记录单词的位置会比较繁琐，因为words中的重复单词，我们没必要知道他们的区别，计算匹配个数就可以了。
+    // v2 建立单词到单词位置的映射，统计各个窗口中匹配到的单词出现的位置，匹配过程中记录单词的位置会比较繁琐，因为 words 中的重复单词，我们没必要知道他们的区别，计算匹配个数就可以了。
     // 因此 v3 的做法是统计单词的个数，需要建立单词到单词出现次数的映射
-    // 32 ms, 94.21%; 16.2MB, 75.25%
+    // 32 ms, 94.21%; 16.2 MB, 75.25%
     static std::vector<int> findSubstring_v3(const std::string &s, std::vector<std::string> &words) {
         int s_len = s.length(), words_num = words.size(), word_len = words[0].length();
         if (s.empty() || words.empty() || s_len < words_num * word_len)
             return {};
 
-        int traverse_num = s_len - words_num * word_len + 1;
         std::vector<int> res;
         std::unordered_map<std::string, int> map_word_count;  // 记录每个单词在words中出现的次数
         for (int i = 0; i < words_num; i++)
             map_word_count[words[i]]++;
 
         for (int i = 0; i < word_len; i++) {
-            int left = i, right = i, count = 0;  // left 和 right 为滑动窗口的左右边界（和v2不同，v3这里的滑动窗口里边的单词都是目标单词，因此滑动窗口的长度小于等于 word_len*words_num ）
+            int left = i, right = i, count = 0;  // left 和 right 为滑动窗口的左右边界（和 v2 不同，v3 这里的滑动窗口里边的单词都是目标单词，因此滑动窗口的长度小于等于 word_len*words_num ）
             std::unordered_map<std::string, int> temp_map;  // 记录滑动窗口中单词以及单词的出现次数
             while (right < s_len) {
                 std::string substring = s.substr(right, word_len);
@@ -155,6 +154,58 @@ public:
 
         return res;
     }
+
+    // 基于 v3 的优化
+    // 36 ms, 87.92%; 16.4 MB, 68.96%（并没有提升，每次更新单词的位置会带来额外的计算时间）
+    static std::vector<int> findSubstring_v4(const std::string &s, std::vector<std::string> &words) {
+        int s_len = s.length(), words_num = words.size(), word_len = words[0].length();
+        if (s.empty() || words.empty() || s_len < words_num * word_len)
+            return {};
+
+        std::vector<int> res;
+        std::unordered_map<std::string, int> map_word_count;  // 记录每个单词在words中出现的次数
+        for (int i = 0; i < words_num; i++)
+            map_word_count[words[i]]++;
+
+        for (int i = 0; i < word_len; i++) {
+            int left = i, right = i, count = 0;  // left 和 right 为滑动窗口的左右边界（和v2不同，v3这里的滑动窗口里边的单词都是目标单词，因此滑动窗口的长度小于等于 word_len*words_num ）
+            std::unordered_map<std::string, std::vector<int>> current_pos_of_words;  // 记录滑动窗口中单词以及单词在滑动窗口的位置
+            while (right < s_len) {
+                std::string substring = s.substr(right, word_len);
+                right += word_len;  // 和 v2 一样，每次滑动一个单词的长度
+                if (map_word_count.find(substring) == map_word_count.end()) {
+                    left = right;
+                    count = 0;
+                    current_pos_of_words.clear();
+                } else {
+                    count++;
+                    current_pos_of_words[substring].push_back(right - word_len - left);
+
+                    if (current_pos_of_words[substring].size() > map_word_count[substring]) {
+                        int move_step = current_pos_of_words[substring][0] + word_len;
+                        count -= move_step / word_len;
+                        left += move_step;
+                        // 更新滑动窗口中单词的出现位置，会带来额外的计算，因此并不能提高速度，甚至会减慢速度
+                        std::for_each(current_pos_of_words.begin(), current_pos_of_words.end(), [move_step](std::unordered_map<std::string, std::vector<int>>::reference e) {
+                            for (auto it = e.second.begin(); it != e.second.end();) {
+                                if (*it < move_step)
+                                    e.second.erase(it);
+                                else {
+                                    *it -= move_step;
+                                    it++;
+                                }
+                            }
+                        });
+                    }
+                    if (count == words_num)
+                        res.push_back(left);
+                }
+            }
+        }
+
+        return res;
+    }
+
 };
 
 int main() {
@@ -189,7 +240,7 @@ int main() {
     for (int i = 0; i < L.size(); i++) {
         std::cout << "============================\n";
         t.reset();
-        auto res = solution030::findSubstring_v3(W[i], L[i]);
+        auto res = solution030::findSubstring_v4(W[i], L[i]);
         double diff = t.cost();
         std::cout << "Input: W=\"" << W[i] << "\", L=[";
         std::for_each(L[i].begin(), L[i].end(), [](const std::string &s) { std::cout << "\"" << s << "\","; });
