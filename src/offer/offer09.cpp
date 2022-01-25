@@ -46,9 +46,10 @@ private:
     std::stack<int> s1, s2;
 };
 
-class CQueue {
+// 改进V1
+class CQueueV2 {
 public:
-    CQueue(): s1(), s2(), need_reverse(false) {}
+    CQueueV2(): s1(), s2(), need_reverse(false) {}
 
     void appendTail(int value) {
         std::stack<int> *p1, *p2;  // p1是指向空的栈，p2指向非空的栈
@@ -106,8 +107,37 @@ private:
     bool need_reverse;
 };
 
+// 参考题解的思路
+class CQueueV3 {
+public:
+    CQueueV3(): s1(), s2() {}
+
+    void appendTail(int value) {
+        this->s1.push(value);
+    }
+
+    int deleteHead() {
+        if (this->s2.empty()) {
+            if (this->s1.empty()) {
+                return -1;
+            } else {
+                while (!this->s1.empty()) {
+                    this->s2.push(this->s1.top());
+                    this->s1.pop();
+                }
+            }
+        }
+        int v = this->s2.top();
+        this->s2.pop();
+        return v;
+    }
+
+private:
+    std::stack<int> s1, s2;
+};
+
 int main() {
-    CQueue* obj = new CQueue();
+    CQueueV3* obj = new CQueueV3();
     std::cout << obj->deleteHead() << std::endl;
     obj->appendTail(1);
     obj->appendTail(2);
