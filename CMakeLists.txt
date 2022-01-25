@@ -22,3 +22,4 @@ add_executable(solution031 src/stage2/solution031.cpp)
 
 # offer
 add_executable(offer09 src/offer/offer09.cpp)
+add_executable(offer30 src/offer/offer30.cpp)
