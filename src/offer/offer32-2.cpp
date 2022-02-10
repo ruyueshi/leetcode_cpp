@@ -18,7 +18,7 @@ class Solution {
 public:
     std::vector<std::vector<int>> levelOrder(TreeNode* root) {
         std::vector<std::vector<int>> res;
-        std::queue<std::pair<int, TreeNode*>> q;  // {层数，节点}
+        std::queue<std::pair<int, TreeNode*>> q;  // {层数，节点指针}
         if (root)
             q.push({1, root});  // 第一层
         while (!q.empty()) {
