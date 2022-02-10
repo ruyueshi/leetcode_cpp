@@ -15,7 +15,8 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class Solution {
+// 使用栈进行深度优先搜索
+class SolutionV1 {
 public:
     TreeNode *mirrorTree(TreeNode *root) {
         std::stack<TreeNode *> s;
@@ -34,6 +35,19 @@ public:
     }
 };
 
+// 递归
+class SolutionV2 {
+public:
+    TreeNode *mirrorTree(TreeNode *root) {
+        if (!root)
+            return nullptr;
+        TreeNode *temp = root->left;
+        root->left = this->mirrorTree(root->right);
+        root->right = this->mirrorTree(temp);
+        return root;
+    }
+};
+
 int main() {
     auto root = new TreeNode(4);
     root->left = new TreeNode(2);
@@ -42,7 +56,7 @@ int main() {
     root->left->right = new TreeNode(3);
     root->right->left = new TreeNode(6);
     root->right->right = new TreeNode(9);
-    auto res = Solution().mirrorTree(root);
+    auto res = SolutionV2().mirrorTree(root);
     std::queue<TreeNode *> q;
     if (res)
         q.push(res);
