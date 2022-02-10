@@ -1,5 +1,5 @@
 /**
- * offer 32-1. 从上到下打印二叉树 II
+ * offer 32-2. 从上到下打印二叉树 II
  * Source: https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/
  */
 
