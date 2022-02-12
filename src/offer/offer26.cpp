@@ -16,7 +16,7 @@ struct TreeNode {
 };
 
 // 递归
-class Solution {
+class SolutionV1 {
 public:
     bool isSubStructure(TreeNode *A, TreeNode *B) {
         if (!B)
@@ -48,6 +48,27 @@ private:
     }
 };
 
+// 递归
+// 优化V1
+class SolutionV2 {
+public:
+    bool isSubStructure(TreeNode *A, TreeNode *B) {
+        if (!A || !B)
+            return false;
+        return this->isSame(A, B) || this->isSubStructure(A->left, B) || this->isSubStructure(A->right, B);
+    }
+
+private:
+    bool isSame(TreeNode *t1, TreeNode *t2) {
+        if (t2 == nullptr)
+            return true;
+        else if (t1 == nullptr || t1->val != t2->val)
+            return false;
+        else
+            return this->isSame(t1->left, t2->left) && this->isSame(t1->right, t2->right);
+    }
+};
+
 int main() {
     auto root = new TreeNode(3);
     root->left = new TreeNode(4);
@@ -56,6 +77,6 @@ int main() {
     root->left->right = new TreeNode(2);
     auto B = new TreeNode(4);
     B->right = new TreeNode(2);
-    std::cout << Solution().isSubStructure(root, B) << std::endl;
+    std::cout << SolutionV2().isSubStructure(root, B) << std::endl;
     return 0;
 }
