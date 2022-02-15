@@ -1,6 +1,6 @@
 /**
- * offer 10-2. 青蛙跳台阶问题
- * Source: https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/
+ * offer 63. 股票的最大利润
+ * Source: https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof/
  */
 
 #include <iostream>
