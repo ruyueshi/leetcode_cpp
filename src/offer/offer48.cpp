@@ -39,10 +39,11 @@ public:
         int cur = 1, max_len = 1;
         for (int i = 1; i < s.length(); i++) {
             auto begin = pos.find(s[i]);
-            if (begin == pos.end()) {
+            int index = begin == pos.end() ? -1 : begin->second;
+            if (i - index >= cur + 1) {
                 cur = cur + 1;
             } else {
-                cur = std::min(i - begin->second, cur + 1);
+                cur = i - index;
             }
             pos[s[i]] = i;
             if (cur > max_len)
