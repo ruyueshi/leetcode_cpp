@@ -1,6 +1,6 @@
 /**
- * offer 18. 删除链表的节点
- * Source: https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/
+ * offer 25. 合并两个排序的链表
+ * Source: https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
  */
 
 #include <iostream>
@@ -116,6 +116,7 @@ public:
     }
 
     // 优化V3
+    // 伪头节点
     ListNode* mergeTwoListsV3_1(ListNode* l1, ListNode* l2) {
         ListNode *head = new ListNode(0);
         ListNode *p = head;
