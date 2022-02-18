@@ -1,5 +1,5 @@
 /**
- * offer 58-2s. 左旋转字符串
+ * offer 58-2. 左旋转字符串
  * Source: https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
  */
 
