@@ -10,7 +10,7 @@
 #include <queue>
 #include <tuple>
 
-class Solution {
+class SolutionV1 {
 public:
     bool exist(std::vector<std::vector<char>> &board, std::string word) {
         if (word.length() == 0)
@@ -87,8 +87,40 @@ public:
     }
 };
 
+
+// DFS，比V1耗时很多，空间占用也很多（主要是递推，函数占用栈的空间）
+class SolutionV2 {
+public:
+    bool exist(std::vector<std::vector<char>> &board, std::string word) {
+        if (word.length() == 0)
+            return false;
+        m = board.size(), n = board[0].size();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++)
+                if (dfs(board, word, i, j, 0))
+                    return true;
+        }
+        return false;
+    }
+
+private:
+    int m, n;
+
+    bool dfs(std::vector<std::vector<char>> &board, std::string word, int i, int j, int k) {
+        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[k])
+            return false;
+        if (k == word.size() - 1)
+            return true;
+        board[i][j] = '\0';
+        bool res = dfs(board, word, i - 1, j, k + 1) || dfs(board, word, i, j + 1, k + 1) ||
+                   dfs(board, word, i + 1, j, k + 1) || dfs(board, word, i, j - 1, k + 1);
+        board[i][j] = word[k];
+        return res;
+    }
+};
+
 int main() {
-    Solution s;
+    SolutionV1 s;
     std::vector<std::vector<char>> board = {{'A', 'B', 'C', 'E'},
                                             {'S', 'F', 'C', 'S'},
                                             {'A', 'D', 'E', 'E'}};
