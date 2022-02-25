@@ -20,6 +20,9 @@ add_executable(solution029 src/stage2/solution029.cpp)
 add_executable(solution030 src/stage2/solution030.cpp)
 add_executable(solution031 src/stage2/solution031.cpp)
 
+# stage3
+add_executable(509 src/stage3/dynamic_programming/509_FibonacciNumber.cpp)
+
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
 add_executable(offer03 src/offer/offer03.cpp)
