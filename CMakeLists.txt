@@ -10,8 +10,6 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/stage1
 )
 
-#aux_source_directory(${PROJECT_SOURCE_DIR}/src src_list)
-
 # stage1
 add_executable(leetcode_cpp src/stage1/main.cpp)
 
@@ -22,6 +20,7 @@ add_executable(solution031 src/stage2/solution031.cpp)
 
 # stage3
 add_executable(509 src/stage3/dynamic_programming/509_FibonacciNumber.cpp)
+add_executable(322 src/stage3/dynamic_programming/322_CoinChang.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
