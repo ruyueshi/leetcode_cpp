@@ -6,7 +6,7 @@
 
 template<typename T>
 static void print_vector(std::vector<T> nums) {
-    for (auto &i: nums)
+    for (const auto &i: nums)
         std::cout << i << ",";
     std::cout << "\b\n";
 }
