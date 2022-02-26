@@ -22,6 +22,7 @@ add_executable(solution031 src/stage2/solution031.cpp)
 add_executable(509 src/stage3/dynamic_programming/509_FibonacciNumber.cpp)
 add_executable(322 src/stage3/dynamic_programming/322_CoinChang.cpp)
 add_executable(046 src/stage3/depth_first_search/046_Permutations.cpp)
+add_executable(051 src/stage3/depth_first_search/051_NQueens.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)

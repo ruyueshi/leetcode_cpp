@@ -1,9 +1,8 @@
 /**
- * 046. Permutations
+ * 46. Permutations
  * Source: https://leetcode-cn.com/problems/coin-change/
  */
 
-#include <iostream>
 #include <vector>
 
 #include "src/utils/print.h"
