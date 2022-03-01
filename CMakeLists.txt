@@ -25,7 +25,8 @@ add_executable(046 src/stage3/depth_first_search/046_Permutations.cpp)
 add_executable(051 src/stage3/depth_first_search/051_NQueens.cpp)
 add_executable(111 src/stage3/breadth_first_search/111_MinimumDepthOfBinaryTree.cpp)
 add_executable(752 src/stage3/breadth_first_search/752_OpenTheLock.cpp)
-add_executable(104 src/stage3/binary_search_tree/104_MaximumDepthOfBinaryTree.cpp)
+add_executable(104 src/stage3/binary_tree/104_MaximumDepthOfBinaryTree.cpp)
+add_executable(543 src/stage3/binary_tree/543_DiameterOfBinaryTree.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
