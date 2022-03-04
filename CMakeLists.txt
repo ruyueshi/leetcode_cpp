@@ -30,6 +30,7 @@ add_executable(543 src/stage3/binary_tree/543_DiameterOfBinaryTree.cpp)
 add_executable(144 src/stage3/binary_tree/144_BinaryTreePreorderTraversal.cpp)
 add_executable(023 src/stage3/linked_lists/023_MergeKSortedLists.cpp)
 add_executable(019 src/stage3/linked_lists/019_RemoveNthNodeFromEndOfList.cpp)
+add_executable(876 src/stage3/linked_lists/876_MiddleOfTheLinkedList.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)

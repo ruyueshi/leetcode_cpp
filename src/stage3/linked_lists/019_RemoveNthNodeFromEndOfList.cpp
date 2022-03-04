@@ -17,6 +17,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// 双指针
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
