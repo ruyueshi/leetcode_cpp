@@ -28,7 +28,8 @@ add_executable(752 src/stage3/breadth_first_search/752_OpenTheLock.cpp)
 add_executable(104 src/stage3/binary_tree/104_MaximumDepthOfBinaryTree.cpp)
 add_executable(543 src/stage3/binary_tree/543_DiameterOfBinaryTree.cpp)
 add_executable(144 src/stage3/binary_tree/144_BinaryTreePreorderTraversal.cpp)
-add_executable(023 src/stage3/binary_tree/023_MergeKSortedLists.cpp)
+add_executable(023 src/stage3/linked_lists/023_MergeKSortedLists.cpp)
+add_executable(019 src/stage3/linked_lists/019_RemoveNthNodeFromEndOfList.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
