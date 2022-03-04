@@ -32,6 +32,7 @@ add_executable(023 src/stage3/linked_lists/023_MergeKSortedLists.cpp)
 add_executable(019 src/stage3/linked_lists/019_RemoveNthNodeFromEndOfList.cpp)
 add_executable(876 src/stage3/linked_lists/876_MiddleOfTheLinkedList.cpp)
 add_executable(141 src/stage3/linked_lists/141_LinkedListCycle.cpp)
+add_executable(160 src/stage3/linked_lists/160_IntersectionOfTwoLinkedLists.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
