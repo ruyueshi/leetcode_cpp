@@ -34,6 +34,7 @@ add_executable(876 src/stage3/linked_lists/876_MiddleOfTheLinkedList.cpp)
 add_executable(141 src/stage3/linked_lists/141_LinkedListCycle.cpp)
 add_executable(160 src/stage3/linked_lists/160_IntersectionOfTwoLinkedLists.cpp)
 add_executable(200 src/stage3/graph/200_NumberOfIslands.cpp)
+add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
