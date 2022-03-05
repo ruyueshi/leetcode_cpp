@@ -38,6 +38,7 @@ add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 add_executable(1020 src/stage3/graph/1020_NumberOfEnclaves.cpp)
 add_executable(695 src/stage3/graph/695_MaxAreaOf_Island.cpp)
 add_executable(1905 src/stage3/graph/1905_CountSubIslands.cpp)
+add_executable(694 src/stage3/graph/694_NumberOfDistinctIslands.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
