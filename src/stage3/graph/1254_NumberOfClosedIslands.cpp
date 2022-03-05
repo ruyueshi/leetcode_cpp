@@ -1,6 +1,6 @@
 /**
- * 200. Number of Islands
- * Source: https://leetcode-cn.com/problems/number-of-islands/
+ * 1254. Number of Closed Islands
+ * Source: https://leetcode-cn.com/problems/number-of-closed-islands/
  */
 
 #include <iostream>
