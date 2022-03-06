@@ -38,22 +38,22 @@ private:
 
 // V2: 回溯
 // 优化V1
+// 另外，发现将成员变量转换为成员函数引用参数，在leetcode上可以节约少量内存消耗。（TODO: 需要了解C++的对象模型，比较类的成员变量和函数的局部变量在存储上的差异）
 class SolutionV2 {
 public:
     std::vector<std::vector<int>> subsets(std::vector<int> &nums) {
-        traceback(nums, 0);
+        std::vector<std::vector<int>> res;
+        std::vector<int> path;
+        traceback(res, path, nums, 0);
         return res;
     }
 
 private:
-    std::vector<std::vector<int>> res;
-    std::vector<int> path;
-
-    void traceback(const std::vector<int> &nums, int start) {
+    void traceback(std::vector<std::vector<int>> &res, std::vector<int> &path, const std::vector<int> &nums, int start) {
         res.push_back(path);
         for (int i = start; i < nums.size(); i++) {
             path.push_back(nums[i]);
-            traceback(nums, i + 1);
+            traceback(res, path, nums, i + 1);
             path.pop_back();
         }
     }
