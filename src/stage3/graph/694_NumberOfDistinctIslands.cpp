@@ -1,5 +1,5 @@
 /**
- * 694. Numver of Distinct Islands
+ * 694. Number of Distinct Islands
  * Source: https://leetcode-cn.com/problems/number-of-distinct-islands/
  */
 

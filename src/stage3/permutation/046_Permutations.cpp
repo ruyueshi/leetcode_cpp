@@ -3,6 +3,7 @@
  * Source: https://leetcode-cn.com/problems/coin-change/
  */
 
+#include <algorithm>
 #include <vector>
 
 #include "src/utils/print.h"
