@@ -34,6 +34,36 @@ private:
     }
 };
 
+// V1_2：优化V1，空间换时间
+class SolutionV1_2 {
+public:
+    std::vector<std::vector<int>> permute(std::vector<int> &nums) {
+        std::vector<int> path;
+        std::vector<bool> visited(nums.size(), false);
+        backtrack(nums, path, visited);
+        return this->res;
+    }
+
+private:
+    std::vector<std::vector<int>> res;
+
+    void backtrack(const std::vector<int> &nums, std::vector<int> &path, std::vector<bool> &visited) {
+        if (path.size() == nums.size()) {
+            this->res.push_back(path);
+            return;
+        }
+        for (int i = 0; i < nums.size(); i++) {
+            if (visited[i])
+                continue;
+            visited[i] = true;
+            path.push_back(nums[i]);
+            backtrack(nums, path, visited);
+            path.pop_back();
+            visited[i] = false;
+        }
+    }
+};
+
 class SolutionV2 {
 public:
     std::vector<std::vector<int>> permute(std::vector<int> &nums) {
@@ -57,13 +87,9 @@ private:
 };
 
 int main() {
-    SolutionV2 s;
+    SolutionV1_2 s;
     std::vector<int> nums = {1, 2, 3};
     auto res = s.permute(nums);
-    for (const auto &v: res)
-        print_vector(v);
-    nums = {0, 1};
-    res = s.permute(nums);
     for (const auto &v: res)
         print_vector(v);
     return 0;
