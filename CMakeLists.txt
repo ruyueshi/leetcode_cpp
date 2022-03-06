@@ -40,6 +40,7 @@ add_executable(695 src/stage3/graph/695_MaxAreaOf_Island.cpp)
 add_executable(1905 src/stage3/graph/1905_CountSubIslands.cpp)
 add_executable(694 src/stage3/graph/694_NumberOfDistinctIslands.cpp)
 add_executable(078 src/stage3/permutation/078_Subsets.cpp)
+add_executable(077 src/stage3/permutation/077_Combinations.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
