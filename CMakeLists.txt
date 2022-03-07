@@ -45,6 +45,7 @@ add_executable(090 src/stage3/permutation/090_Subsets-2.cpp)
 add_executable(040 src/stage3/permutation/040_CombinationSum-2.cpp)
 add_executable(047 src/stage3/permutation/047_Permutations-2.cpp)
 add_executable(039 src/stage3/permutation/039_CombinationSum.cpp)
+add_executable(216 src/stage3/permutation/216_CombinationSum-3.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)

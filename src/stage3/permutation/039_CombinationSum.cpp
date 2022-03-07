@@ -39,6 +39,7 @@ private:
 };
 
 // V2：回溯剪枝
+// 别人的方法，没有V1快
 class SolutionV2 {
 public:
     std::vector<std::vector<int>> combinationSum(std::vector<int> &candidates, int target) {
