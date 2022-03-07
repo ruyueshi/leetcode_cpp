@@ -1,6 +1,6 @@
 /**
  * 46. Permutations
- * Source: https://leetcode-cn.com/problems/coin-change/
+ * Source: https://leetcode-cn.com/problems/permutations/
  */
 
 #include <algorithm>
