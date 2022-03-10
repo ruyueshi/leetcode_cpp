@@ -49,6 +49,7 @@ add_executable(039 src/stage3/permutation/039_CombinationSum.cpp)
 add_executable(216 src/stage3/permutation/216_CombinationSum-3.cpp)
 add_executable(704 src/stage3/binary_search/704_BinarySearch.cpp)
 add_executable(034 src/stage3/binary_search/034_FindFirstAndLastPositionOfElementInSortedArray.cpp)
+add_executable(076 src/stage3/string/076_MinimumWindowSubstring.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
