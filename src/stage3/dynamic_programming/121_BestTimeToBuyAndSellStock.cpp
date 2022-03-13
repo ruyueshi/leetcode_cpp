@@ -23,6 +23,7 @@ public:
 };
 
 // 优化V1
+// 压缩空间
 class SolutionV2 {
 public:
     int maxProfit(std::vector<int> &&prices) {
@@ -38,6 +39,7 @@ public:
 };
 
 // 完全动态规划：
+// k = 1 (k为最大交易次数)
 class SolutionV3 {
 public:
     int maxProfit(std::vector<int> &&prices) {
@@ -55,6 +57,7 @@ public:
 };
 
 // 优化V3
+// 压缩空间
 class SolutionV4 {
 public:
     int maxProfit(std::vector<int> &&prices) {
