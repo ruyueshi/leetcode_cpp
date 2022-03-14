@@ -25,6 +25,7 @@ add_executable(121 src/stage3/dynamic_programming/121_BestTimeToBuyAndSellStock.
 add_executable(122 src/stage3/dynamic_programming/122_BestTimeToBuyAndSellStockII.cpp)
 add_executable(123 src/stage3/dynamic_programming/123_BestTimeToBuyAndSellStockIII.cpp)
 add_executable(188 src/stage3/dynamic_programming/188_BestTimeToBuyAndSellStockIV.cpp)
+add_executable(309 src/stage3/dynamic_programming/309_BestTimeToBuyAndSellStockWithCooldown.cpp)
 add_executable(051 src/stage3/depth_first_search/051_NQueens.cpp)
 add_executable(111 src/stage3/breadth_first_search/111_MinimumDepthOfBinaryTree.cpp)
 add_executable(752 src/stage3/breadth_first_search/752_OpenTheLock.cpp)
