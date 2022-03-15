@@ -4,7 +4,7 @@
  */
 
 #include <iostream>
-#include <map>
+#include <unordered_map>
 
 struct TreeNode {
     int val;
@@ -18,46 +18,47 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-class Solution {
+// 动态规划
+class SolutionV1 {
 public:
     int rob(TreeNode *root) {
-        return std::max(traverse(root, true), traverse(root, false));
-    }
-
-    int traverse(TreeNode *root, bool rob) {
         if (!root)
             return 0;
-        if (rob) {
-            // 当前节点偷，则其子节点不可以偷
-            int left_false, right_false;
-            if (m.find({root->left, false}) != m.end()) {
-                left_false = m[{root->left, false}];
-            } else {
-                left_false = traverse(root->left, false);
-                m.insert({{root->left, false}, left_false});
-            }
-            if (m.find({root->right, false}) != m.end()) {
-                right_false = m[{root->right, false}];
-            } else {
-                right_false = traverse(root->right, false);
-                m.insert({{root->right, false}, right_false});
-            }
-            return root->val + left_false + right_false;
-        }
-        else {
-            // 当前节点不偷，则其子节点可以偷也可以不偷
-            int left_max = std::max(traverse(root->left, true), traverse(root->left, false));
-            int right_max = std::max(traverse(root->right, true), traverse(root->right, false));
-            return left_max + right_max;
-        }
+        if (hashtable.find(root) != hashtable.end())
+            return hashtable[root];
+        int do_rob = root->val + (root->left ? rob(root->left->left) + rob(root->left->right) : 0)
+                + (root->right ? rob(root->right->left) + rob(root->right->right) : 0);
+        int not_rob = rob(root->left) + rob(root->right);
+        int res = std::max(do_rob, not_rob);
+        hashtable.insert({root, res});
+        return res;
     }
 
 private:
-    std::map<std::pair<TreeNode*, bool>, int> m;
+    std::unordered_map<TreeNode*, int> hashtable;
+};
+
+// 优化V1
+// 压缩空间
+class SolutionV2 {
+public:
+    int rob(TreeNode *root) {
+        auto res = traverse(root);  // {抢，不抢}
+        return std::max(res.first, res.second);
+    }
+
+    std::pair<int, int> traverse(TreeNode *root) {
+        if (!root)
+            return {0, 0};
+        auto left = traverse(root->left), right = traverse(root->right);
+        int do_rob = root->val + left.second + right.second;
+        int not_rob = std::max(left.first, left.second) + std::max(right.first, right.second);
+        return {do_rob, not_rob};
+    }
 };
 
 int main() {
-    Solution s;
+    SolutionV2 s;
     TreeNode *root = new TreeNode(3);
     root->left = new TreeNode(2);
     root->right = new TreeNode(3);
