@@ -20,6 +20,7 @@ add_executable(solution031 src/stage2/solution031.cpp)
 
 # stage3
 add_executable(015 src/stage3/array/015_3Sum.cpp)
+add_executable(018 src/stage3/array/018_4Sum.cpp)
 add_executable(104 src/stage3/binary_tree/104_MaximumDepthOfBinaryTree.cpp)
 add_executable(543 src/stage3/binary_tree/543_DiameterOfBinaryTree.cpp)
 add_executable(144 src/stage3/binary_tree/144_BinaryTreePreorderTraversal.cpp)

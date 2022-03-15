@@ -16,7 +16,7 @@ public:
         std::vector<std::vector<int>> res;
         int n = nums.size();
         for (int i = 0; i < n - 2; i++) {
-            if (nums[i] + nums[i + 1] + nums[i + 2] > 0)  // 剪枝
+            if (nums[i] > 0)  // 剪枝（仅适用于target非负的时候）
                 break;
             if (i > 0 && nums[i] == nums[i - 1])  // 去重
                 continue;
