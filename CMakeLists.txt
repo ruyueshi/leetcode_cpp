@@ -29,6 +29,7 @@ add_executable(309 src/stage3/dynamic_programming/309_BestTimeToBuyAndSellStockW
 add_executable(714 src/stage3/dynamic_programming/714_BestTimeToBuyAndSellStockWithTransactionFee.cpp)
 add_executable(198 src/stage3/dynamic_programming/198_HouseRobber.cpp)
 add_executable(213 src/stage3/dynamic_programming/213_HouseRobberII.cpp)
+add_executable(337 src/stage3/dynamic_programming/337_HouseRobberIII.cpp)
 add_executable(051 src/stage3/depth_first_search/051_NQueens.cpp)
 add_executable(111 src/stage3/breadth_first_search/111_MinimumDepthOfBinaryTree.cpp)
 add_executable(752 src/stage3/breadth_first_search/752_OpenTheLock.cpp)
