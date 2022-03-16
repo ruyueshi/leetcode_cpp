@@ -1,6 +1,6 @@
 /**
- * 160. Intersection of Two Linked Lists
- * Source: https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+ * 25. Reverse Nodes in k-Group
+ * Source: https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
  */
 
 #include <iostream>
