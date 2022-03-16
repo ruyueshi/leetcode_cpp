@@ -17,7 +17,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+class SolutionV1 {
 public:
     ListNode *reverseKGroup(ListNode *head, int k) {
         ListNode *dummy = new ListNode(-1, head);
@@ -44,8 +44,39 @@ public:
     }
 };
 
+// 递归
+class SolutionV2 {
+public:
+    ListNode *reverseKGroup(ListNode *head, int k) {
+        ListNode *b = head;
+        for (int i = 0; i < k; i++) {
+            if (!b)
+                return head;
+            b = b->next;
+        }
+        ListNode *first_reversed = reverse(head, b);
+        head->next = reverseKGroup(b, k);
+        return first_reversed;
+    }
+
+private:
+    ListNode *reverse(ListNode *a, ListNode *b) {
+        if (!a)
+            return nullptr;
+        ListNode *new_head = a, *p = a->next, *temp;
+        new_head->next = nullptr;
+        while (p != b) {
+            temp = p;
+            p = p->next;
+            temp->next = new_head;
+            new_head = temp;
+        }
+        return new_head;
+    }
+};
+
 int main() {
-    Solution s;
+    SolutionV2 s;
     std::vector<std::pair<std::vector<int>, int>> test_cases;
     test_cases.push_back({{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 4});
     test_cases.push_back({{1, 2, 3, 4, 5}, 2});
