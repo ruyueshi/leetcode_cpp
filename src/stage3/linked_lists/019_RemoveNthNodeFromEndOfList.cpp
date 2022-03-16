@@ -18,7 +18,7 @@ struct ListNode {
 };
 
 // 双指针
-class Solution {
+class SolutionV1 {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode *fast = head;
@@ -46,8 +46,36 @@ public:
     }
 };
 
+// 优化V1
+// 更加优雅
+class SolutionV2 {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode dummy(-1, head);
+        auto target = findNthFromEnd(&dummy, n + 1);
+        auto to_del = target->next;
+        target->next = target->next->next;
+        delete to_del;
+        to_del = nullptr;
+        return dummy.next;
+    }
+
+private:
+    ListNode* findNthFromEnd(ListNode* head, int n) {
+        ListNode *fast = head, *slow = head;
+        for (int i = 0; i < n; i++) {
+            fast = fast->next;
+        }
+        while (fast) {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        return slow;
+    }
+};
+
 int main() {
-    Solution s;
+    SolutionV2 s;
 
     int num[] = {1, 2, 4};
     ListNode *l = new ListNode(num[0]);
@@ -56,7 +84,7 @@ int main() {
         p->next = new ListNode(num[i]);
         p = p->next;
     }
-    ListNode *ans = s.removeNthFromEnd(l, 1);
+    ListNode *ans = s.removeNthFromEnd(l, 3);
     while (ans) {
         std::cout << ans->val << "->";
         ans = ans->next;
