@@ -18,7 +18,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+class SolutionV1 {
 public:
     bool isPalindrome(ListNode *head) {
         ListNode *fast = head, *slow = head;
@@ -49,9 +49,34 @@ public:
     }
 };
 
+// 使用递归
+// 后序遍历
+class SolutionV2 {
+public:
+    bool isPalindrome(ListNode *head) {
+        left = head;
+        return traverse(head);
+    }
+
+private:
+    ListNode* left;
+
+    bool traverse(ListNode *right) {
+        if (!right)
+            return true;
+        bool right_res = traverse(right->next);
+        if (right_res && left->val == right->val) {
+            left = left->next;
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
+
 int main() {
-    Solution s;
-    std::vector<int> num = {1, 2, 3, 4, 2, 1};
+    SolutionV2 s;
+    std::vector<int> num = {1, 2, 3, 3, 2, 1};
     ListNode *l = new ListNode(num[0]);
     ListNode *p = l;
     for (int i = 1; i < num.size(); i++) {
