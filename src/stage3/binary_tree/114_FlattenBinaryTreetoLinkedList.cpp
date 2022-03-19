@@ -1,6 +1,6 @@
 /**
- * 538. Convert BST to Greater Tree
- * Source: https://leetcode-cn.com/problems/convert-bst-to-greater-tree/
+ * 114. Flatten Binary Tree to Linked List
+ * Source: https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
  */
 
 #include "src/utils/tree.h"
