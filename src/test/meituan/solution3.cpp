@@ -2,8 +2,11 @@
 #include <iostream>
 #include <map>
 #include <set>
+#include <string>
 
-int main() {
+// 超时
+// 瓶颈在cin cout
+int main1() {
     int T;
     std::cin >> T;
     for (int _ = 0; _ < T; _++) {
@@ -32,38 +35,114 @@ int main() {
             }
         }
 
+        std::string res;
         for (int i = 0; i < M; i++) {
             if (retain[i] == 'M') {  // 男性
                 if (!s1.empty()) {
                     auto it = s1.begin();
-                    std::cout << *it << std::endl;
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
                     s2.insert(*it);
                     s1.erase(it);
                 } else if (!s0.empty()) {
                     auto it = s0.begin();
-                    std::cout << *it << std::endl;
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
                     s1.insert(*it);
                     s0.erase(it);
                 }
             } else {
                 if (!s0.empty()) {
                     auto it = s0.begin();
-                    std::cout << *it << std::endl;
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
                     s1.insert(*it);
                     s0.erase(it);
                 } else if (!s1.empty()) {
                     auto it = s1.begin();
-                    std::cout << *it << std::endl;
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
                     s2.insert(*it);
                     s1.erase(it);
                 }
             }
         }
+        std::cout << res;
     }
     return 0;
 }
 
-int main_() {
+// 可以通过
+// 集中输入输出
+int main2() {
+    int T;
+    std::cin >> T;
+    int N[T], M[T];
+    std::string nums[T], retain[T];
+
+    for (int t = 0; t < T; t++) {
+        std::cin >> N[t];
+        std::cin >> nums[t];
+        std::cin >> M[t];
+        std::cin >> retain[t];
+    }
+
+    for (int t = 0; t < T; t++) {
+        std::set<int> s0, s1, s2;
+        for (int i = 0; i < N[t]; i++) {
+            switch (nums[t][i]) {
+                case '0':
+                    s0.insert(i + 1);
+                    break;
+                case '1':
+                    s1.insert(i + 1);
+                    break;
+                case '2':
+                    s2.insert(i + 1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        std::string res;
+        for (int i = 0; i < M[t]; i++) {
+            if (retain[t][i] == 'M') {  // 男性
+                if (!s1.empty()) {
+                    auto it = s1.begin();
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
+                    s2.insert(*it);
+                    s1.erase(it);
+                } else if (!s0.empty()) {
+                    auto it = s0.begin();
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
+                    s1.insert(*it);
+                    s0.erase(it);
+                }
+            } else {
+                if (!s0.empty()) {
+                    auto it = s0.begin();
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
+                    s1.insert(*it);
+                    s0.erase(it);
+                } else if (!s1.empty()) {
+                    auto it = s1.begin();
+                    // std::cout << *it << std::endl;
+                    res += std::to_string(*it) + "\n";
+                    s2.insert(*it);
+                    s1.erase(it);
+                }
+            }
+        }
+        std::cout << res;
+    }
+    return 0;
+}
+
+int main_test() {
     // std::vector<std::pair<int, char>> m = {{0, '0'},
     //                                        {1, '2'},
     //                                        {2, '1'},
