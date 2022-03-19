@@ -25,6 +25,6 @@ public:
 int main() {
     Solution s;
     print_tree1(s.trimBST(construct_tree({1, 0, 2}), 1, 2));
-    print_tree1(s.trimBST(construct_tree({3, 0, 4, -1, 2, -1, -1, 1}), 1, 3));
+    print_tree1(s.trimBST(construct_tree({3, 0, 4, INT_MIN, 2, INT_MIN, INT_MIN, 1}), 1, 3));
     return 0;
 }

@@ -18,7 +18,7 @@ struct TreeNode {
 };
 
 /*
- * nodes = {3,0,4,-1,2,-1,-1,1}; // -1 means null node;
+ * nodes = {3,0,4,INT_MIN,2,INT_MIN,INT_MIN,1}; // INT_MIN means null node;
  */
 static TreeNode *construct_tree(const std::vector<int> &nodes) {
     if (nodes.size() == 0)
@@ -26,50 +26,57 @@ static TreeNode *construct_tree(const std::vector<int> &nodes) {
     auto root = new TreeNode(nodes[0]);
     std::queue<TreeNode *> q;
     q.push(root);
-    for (int i = 1; i < nodes.size(); i++) {
+    int i = 1;
+    while (!q.empty() && i < nodes.size()) {
         auto p = q.front();
         q.pop();
-        if (nodes[i] >= 0) {
+        if (nodes[i] != INT_MIN) {
             p->left = new TreeNode(nodes[i]);
             q.push(p->left);
         }
-        if (++i >= nodes.size())
-            break;
-        if (nodes[i] >= 0) {
-            p->right = new TreeNode(nodes[i]);
+        if (i + 1 < nodes.size() && nodes[i + 1] != INT_MIN) {
+            p->right = new TreeNode(nodes[i + 1]);
             q.push(p->right);
         }
+        i += 2;
     }
     return root;
 }
 
 static void print_tree1(TreeNode *root) {
     if (!root) {
-        std::cout << "[]" << std::endl;
+        std::cout << "[]\n";
         return;
     }
     std::queue<TreeNode *> q;
+    std::vector<int> res;
     q.push(root);
-    std::cout << "[" << root->val;
+    res.push_back(root->val);
     while (!q.empty()) {
         auto p = q.front();
         q.pop();
         if (!p->left && !p->right && q.empty())
             break;
         if (p->left) {
-            std::cout << "," << p->left->val;
+            res.push_back(p->left->val);
             q.push(p->left);
         } else {
-            std::cout << ",null";
+            res.push_back(INT_MIN);
         }
         if (p->right) {
-            std::cout << "," << p->right->val;
+            res.push_back(p->right->val);
             q.push(p->right);
         } else {
-            std::cout << ",null";
+            res.push_back(INT_MIN);
         }
     }
-    std::cout << "]\n";
+    while (res.back() == INT_MIN)
+        res.pop_back();
+    std::cout << "[";
+    for (const auto &v: res) {
+        std::cout << (v == INT_MIN ? "null" : std::to_string(v)) << ",";
+    }
+    std::cout << "\b]\n";
 }
 
 // static void traceback(TreeNode *root, int level, std::vector<std::string> &tree) {
