@@ -3,14 +3,15 @@
 
 int get_m(int *nums, int n, int x, int y) {
     std::sort(nums, nums + n);
-    int i = 0;
-    while (i < n) {
-        int dummy_m = nums[i] - 1, good = n - i, bad = i - 0;
+    int i = x - 1;
+    while (i <= y - 1) {
+        while (i <= y - 2 && nums[i + 1] == nums[i])
+            i++;
+        int dummy_m = nums[i];
+        int good = (n - 1) - i, bad = i - 0 + 1;
         if (good >= x && good <= y && bad >= x && bad <= y)
             return dummy_m;
         i++;
-        while (i < n && nums[i] == nums[i-1])
-            i++;
     }
     return -1;
 }
