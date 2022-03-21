@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(leetcode_cpp)
 
+add_subdirectory(temp)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -120,8 +122,4 @@ add_executable(offer63 src/offer/offer63.cpp)
 # codetop
 add_executable(003 src/codetop/003_LongestSubstringWithoutRepeatingCharacters.cpp)
 
-# test
-add_executable(meituan_solution1 src/test/meituan/solution1.cpp)
-add_executable(meituan_solution2 src/test/meituan/solution2.cpp)
-add_executable(meituan_solution3 src/test/meituan/solution3.cpp)
-add_executable(meituan_solution4 src/test/meituan/solution4.cpp)
+add_subdirectory(src/test)
