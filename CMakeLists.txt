@@ -83,6 +83,7 @@ add_executable(216 src/stage3/permutation/216_CombinationSum-3.cpp)
 add_executable(076 src/stage3/string/076_MinimumWindowSubstring.cpp)
 add_executable(567 src/stage3/string/567_PermutationInString.cpp)
 add_executable(438 src/stage3/string/438_FindAllAnagramsInAString.cpp)
+add_executable(912 src/stage3/sort/912_SortAnArray.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
