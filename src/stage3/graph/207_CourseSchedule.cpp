@@ -10,9 +10,9 @@
 class Solution {
 public:
     bool canFinish(int numCourses, std::vector<std::vector<int>> &prerequisites) {
-        std::vector<std::forward_list<int>> graph(numCourses);
+        std::vector<std::vector<int>> graph(numCourses);
         for (auto &p: prerequisites) {
-            graph[p[0]].push_front(p[1]);
+            graph[p[1]].push_back(p[0]);
         }
         std::vector<bool> visited(numCourses, false), path(numCourses, false);
         for (int i = 0; i < numCourses; i++)
@@ -23,7 +23,7 @@ public:
 private:
     bool has_cycle = false;
 
-    void traceback(const std::vector<std::forward_list<int>> &graph, std::vector<bool> &visited, std::vector<bool> &path, int s) {
+    void traceback(const std::vector<std::vector<int>> &graph, std::vector<bool> &visited, std::vector<bool> &path, int s) {
         if (path[s]) {
             has_cycle = true;
         }
