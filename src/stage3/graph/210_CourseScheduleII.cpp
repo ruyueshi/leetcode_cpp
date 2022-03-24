@@ -14,7 +14,7 @@ public:
         std::vector<std::vector<int>> graph(numCourses);
         // build graph
         for (auto &p: prerequisites)
-            graph[p[1]].push_back(p[0]);
+            graph[p[0]].push_back(p[1]);  // 现在是依赖方指向被依赖方，颠倒方向后可以不用堆后续遍历进行反转
 
         std::vector<bool> visited(numCourses, false), path(numCourses, false);
 
@@ -24,7 +24,7 @@ public:
         if (has_cycle)
             return {};
 
-        std::reverse(res.begin(), res.end());
+        // std::reverse(res.begin(), res.end());
         return res;
     }
 
