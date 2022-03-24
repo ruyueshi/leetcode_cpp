@@ -9,7 +9,7 @@ bool can_live(std::map<int, int> &m, std::vector<int> &a, int &sum, const int &n
     std::vector<int> v2, v1;
     for (auto it = m.begin(); it != m.end(); it++) {
         if (it->second == 2) {
-            v2.push_back(it->first)
+            v2.push_back(it->first);
         }
     }
     return false;

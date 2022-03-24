@@ -108,7 +108,7 @@ int main1() {
 
 // 可以通过
 // 集中输入输出
-int main2() {
+int main() {
     int T;
     std::cin >> T;
     int N[T], M[T];
