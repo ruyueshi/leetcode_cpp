@@ -41,6 +41,7 @@ add_executable(105 src/stage3/binary_tree/105_BinaryTreefromPreorderandInorderTr
 add_executable(106 src/stage3/binary_tree/106_ConstructBinaryTreeFromInorderAndPostorderTraversal.cpp)
 add_executable(889 src/stage3/binary_tree/889_ConstructBinaryTreeFromPreorderAndPostorderTraversal.cpp)
 add_executable(652 src/stage3/binary_tree/652_FindDuplicateSubtrees.cpp)
+add_executable(297 src/stage3/binary_tree/297_SerializeAndDeserializeBinaryTree.cpp)
 add_executable(111 src/stage3/breadth_first_search/111_MinimumDepthOfBinaryTree.cpp)
 add_executable(752 src/stage3/breadth_first_search/752_OpenTheLock.cpp)
 add_executable(051 src/stage3/depth_first_search/051_NQueens.cpp)
