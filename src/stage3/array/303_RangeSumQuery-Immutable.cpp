@@ -10,11 +10,9 @@ class NumArray {
 public:
     NumArray(std::vector<int> &nums) {
         pre_sum.resize(nums.size() + 1);
-        int sum = 0;
         pre_sum[0] = 0;
         for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-            pre_sum[i + 1] = sum;
+            pre_sum[i + 1] = nums[i];
         }
     }
 
