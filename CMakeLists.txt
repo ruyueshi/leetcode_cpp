@@ -23,6 +23,7 @@ add_executable(solution031 src/stage2/solution031.cpp)
 # stage3
 add_executable(015 src/stage3/array/015_3Sum.cpp)
 add_executable(018 src/stage3/array/018_4Sum.cpp)
+add_executable(303 src/stage3/array/303_RangeSumQuery-Immutable.cpp)
 add_executable(704 src/stage3/binary_search/704_BinarySearch.cpp)
 add_executable(034 src/stage3/binary_search/034_FindFirstAndLastPositionOfElementInSortedArray.cpp)
 add_executable(104 src/stage3/binary_tree/104_MaximumDepthOfBinaryTree.cpp)
