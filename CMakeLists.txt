@@ -98,6 +98,7 @@ add_executable(912 src/stage3/sort/912_SortAnArray.cpp)
 add_executable(315 src/stage3/sort/315_CountOfSmallerNumbersAfterSelf.cpp)
 add_executable(493 src/stage3/sort/493_ReversePairs.cpp)
 add_executable(327 src/stage3/sort/327_CountOfRangeSum.cpp)
+add_executable(215 src/stage3/sort/215_KthLargestElementInAnArray.cpp)
 
 # offer
 add_executable(offer04 src/offer/offer04.cpp)
