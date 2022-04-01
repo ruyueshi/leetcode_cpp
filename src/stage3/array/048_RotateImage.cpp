@@ -3,11 +3,13 @@
  * Source: https://leetcode-cn.com/problems/rotate-image/
  */
 
+#include <algorithm>
 #include <vector>
 
 #include "src/utils/print.h"
 
-class Solution {
+// V1: 一圈一圈的旋转
+class SolutionV1 {
 public:
     void rotate(std::vector<std::vector<int>> &matrix) {
         int n = matrix.size();
@@ -33,8 +35,29 @@ private:
     }
 };
 
+// V2: 线沿左上到右下的对角线做镜像对称变换，再对矩阵的每一行进行反转
+// 代码看着简单，实际上不如V1快
+class SolutionV2 {
+public:
+    void rotate(std::vector<std::vector<int>> &matrix) {
+        int n = matrix.size();
+        // 沿对角线做对称变换
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        // 将每一行反转
+        for (int i = 0; i < n; i++)
+            std::reverse(matrix[i].begin(), matrix[i].end());
+    }
+};
+
 int main() {
-    Solution s;
+    SolutionV2 s;
     std::vector<std::vector<int>> matrix = {{1, 2, 3},
                                             {4, 5, 6},
                                             {7, 8, 9}};
