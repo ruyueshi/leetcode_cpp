@@ -96,6 +96,7 @@ add_executable(040 src/stage3/permutation/040_CombinationSum-2.cpp)
 add_executable(047 src/stage3/permutation/047_Permutations-2.cpp)
 add_executable(039 src/stage3/permutation/039_CombinationSum.cpp)
 add_executable(216 src/stage3/permutation/216_CombinationSum-3.cpp)
+add_executable(003 src/stage3/string/003_LongestSubstringWithoutRepeatingCharacters.cpp)
 add_executable(076 src/stage3/string/076_MinimumWindowSubstring.cpp)
 add_executable(567 src/stage3/string/567_PermutationInString.cpp)
 add_executable(438 src/stage3/string/438_FindAllAnagramsInAString.cpp)
@@ -142,6 +143,5 @@ add_executable(offer58-2 src/offer/offer58-2.cpp)
 add_executable(offer63 src/offer/offer63.cpp)
 
 # codetop
-add_executable(003 src/codetop/003_LongestSubstringWithoutRepeatingCharacters.cpp)
 
 add_subdirectory(src/test)
