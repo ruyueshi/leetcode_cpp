@@ -69,6 +69,7 @@ add_executable(300 src/stage3/dynamic_programming/300_LongestIncreasingSubsequen
 add_executable(354 src/stage3/dynamic_programming/354_RussianDollEnvelopes.cpp)
 add_executable(931 src/stage3/dynamic_programming/931_MinimumFallingPathSum.cpp)
 add_executable(494 src/stage3/dynamic_programming/494_Target_Sum.cpp)
+add_executable(416 src/stage3/dynamic_programming/416_PartitionEqualSubsetSum.cpp)
 add_executable(200 src/stage3/graph/200_NumberOfIslands.cpp)
 add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 add_executable(1020 src/stage3/graph/1020_NumberOfEnclaves.cpp)
