@@ -1,6 +1,6 @@
 /**
- * 53. Maximum Subarray
- * Source: https://leetcode-cn.com/problems/maximum-subarray/
+ * 1143. Longest Common Subsequence
+ * Source: https://leetcode-cn.com/problems/longest-common-subsequence/
  */
 
 #include <iostream>
