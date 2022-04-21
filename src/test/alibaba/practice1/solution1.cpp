@@ -36,14 +36,14 @@
 #include <iostream>
 #include <vector>
 
-int get_most_products(std::vector<std::vector<int>> &nums) {
+// V1：动态规划，O(n^2)
+int get_most_products_v1(std::vector<std::vector<int>> &nums) {
     std::sort(nums.begin(), nums.end(), [](const std::vector<int> &a, const std::vector<int> &b) {
         return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
     });
 
     int n = nums.size(), res = 0;
     std::vector<int> dp(n, 1);
-    std::cout << "begin\n";
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < i; j++) {
             if (nums[i][1] > nums[j][1])
@@ -51,8 +51,39 @@ int get_most_products(std::vector<std::vector<int>> &nums) {
         }
         res = std::max(res, dp[i]);
     }
-    std::cout << "end\n";
     return res;
+}
+
+// V2：二分查找
+int get_most_products_v2(std::vector<std::vector<int>> &nums) {
+    std::sort(nums.begin(), nums.end(), [](const std::vector<int> &a, const std::vector<int> &b) {
+        return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
+    });
+
+    int n = nums.size(), res = 0;
+    std::vector<int> top;
+    for (int i = 0; i < n; i++) {
+        int candidate = nums[i][1];
+        int left = 0, right = top.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (candidate == top[mid]) {
+                left = mid;
+                break;
+            } else if (candidate < top[mid]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        if (left >= top.size()) {
+            top.push_back(candidate);
+        } else {
+            top[left] = candidate;
+        }
+    }
+    return top.size();
 }
 
 int main() {
@@ -62,15 +93,11 @@ int main() {
     for (int i = 0; i < T; i++) {
         std::cin >> n;
         std::vector<std::vector<int>> nums(n, std::vector<int>(2));
-        std::cout << "begin1\n";
         for (int j = 0; j < n; j++)
-            scanf("%d", &nums[j][0]);
-            // std::cin >> nums[j][0];
+            std::cin >> nums[j][0];
         for (int j = 0; j < n; j++)
-            scanf("%d", &nums[j][1]);
-            // std::cin >> nums[j][1];
-        std::cout << "begin2\n";
-        std::cout << get_most_products(nums) << std::endl;
+            std::cin >> nums[j][1];
+        std::cout << get_most_products_v2(nums) << std::endl;
     }
     return 0;
 }

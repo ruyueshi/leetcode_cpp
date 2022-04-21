@@ -3,6 +3,7 @@
 # 阿里巴巴
 # 练习1
 add_executable(alibaba_practice1_solution1 alibaba/practice1/solution1.cpp)
+add_executable(alibaba_practice1_solution2 alibaba/practice1/solution2.cpp)
 
 # 百度
 # 2020校招第三批
