@@ -77,6 +77,8 @@ add_executable(1143 src/stage3/dynamic_programming/1143_LongestCommonSubsequence
 add_executable(583 src/stage3/dynamic_programming/583_DeleteOperationForTwoStrings.cpp)
 add_executable(712 src/stage3/dynamic_programming/712_MinimumASCIIDeleteSumForTwoStrings.cpp)
 add_executable(042 src/stage3/dynamic_programming/042_TrappingRainWater.cpp)
+add_executable(516 src/stage3/dynamic_programming/516_LongestPalindromicSubsequence.cpp)
+add_executable(005 src/stage3/dynamic_programming/005_LongestPalindromicSubstring.cpp)
 add_executable(200 src/stage3/graph/200_NumberOfIslands.cpp)
 add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 add_executable(1020 src/stage3/graph/1020_NumberOfEnclaves.cpp)
