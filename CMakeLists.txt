@@ -79,6 +79,7 @@ add_executable(712 src/stage3/dynamic_programming/712_MinimumASCIIDeleteSumForTw
 add_executable(042 src/stage3/dynamic_programming/042_TrappingRainWater.cpp)
 add_executable(516 src/stage3/dynamic_programming/516_LongestPalindromicSubsequence.cpp)
 add_executable(005 src/stage3/dynamic_programming/005_LongestPalindromicSubstring.cpp)
+add_executable(1312 src/stage3/dynamic_programming/1312_MinimumInsertionStepsToMakeAStringPalindrome.cpp)
 add_executable(200 src/stage3/graph/200_NumberOfIslands.cpp)
 add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 add_executable(1020 src/stage3/graph/1020_NumberOfEnclaves.cpp)
