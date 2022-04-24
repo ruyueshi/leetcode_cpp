@@ -27,3 +27,10 @@ add_executable(huawei_practice1_solution3 huawei/practice1/solution3.cpp)
 add_executable(jinshan_practice1_solution1 jinshan/practice1/solution1.cpp)
 add_executable(jinshan_practice1_solution2 jinshan/practice1/solution2.cpp)
 add_executable(jinshan_practice1_solution3 jinshan/practice1/solution3.cpp)
+
+# 腾讯
+# 练习1
+add_executable(tencent_practice1_solution1 tencent/practice1/solution1.cpp)
+add_executable(tencent_practice1_solution2 tencent/practice1/solution2.cpp)
+add_executable(tencent_practice1_solution3 tencent/practice1/solution3.cpp)
+add_executable(tencent_practice1_solution4 tencent/practice1/solution4.cpp)
