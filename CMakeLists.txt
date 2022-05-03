@@ -83,6 +83,7 @@ add_executable(1312 src/stage3/dynamic_programming/1312_MinimumInsertionStepsToM
 add_executable(064 src/stage3/dynamic_programming/064_MinimumPathSum.cpp)
 add_executable(174 src/stage3/dynamic_programming/174_DungeonGame.cpp)
 add_executable(514 src/stage3/dynamic_programming/514_FreedomTrail.cpp)
+add_executable(787 src/stage3/dynamic_programming/787_CheapestFlightsWithinKStops.cpp)
 add_executable(200 src/stage3/graph/200_NumberOfIslands.cpp)
 add_executable(1254 src/stage3/graph/1254_NumberOfClosedIslands.cpp)
 add_executable(1020 src/stage3/graph/1020_NumberOfEnclaves.cpp)
