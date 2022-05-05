@@ -32,7 +32,6 @@ int n;
 int price[20][20];
 int min_cost = INT32_MAX;
 
-// 超时
 void dfs(int city, int i, std::vector<bool> &visited, int sum) {
     if (i == n) {
         min_cost = std::min(min_cost, sum);
@@ -53,7 +52,8 @@ void dfs(int city, int i, std::vector<bool> &visited, int sum) {
     }
 }
 
-int main() {
+// 超时
+int main_v1() {
     std::cin >> n;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -64,5 +64,35 @@ int main() {
     visited[0] = true;
     dfs(0, 0, visited, 0);
     std::cout << min_cost << std::endl;
+    return 0;
+}
+
+int main() {
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            std::cin >> price[i][j];
+        }
+    }
+    int all = 1 << (n - 1);
+    std::vector<std::vector<int>> dp(n, std::vector<int>(all));  // dp[i][j]表示从城市i到j的最低花费（j表示多个城市，例如n等于4时，j=101表示从i到城市1和3的最低花费）
+    for (int i = 0; i < n; i++) {
+        dp[i][0] = price[i][0];
+    }
+
+    for (int j = 1; j < all; j++) {
+        for (int i = 0; i < n; i++) {
+            dp[i][j] = INT32_MAX;
+            if ((j >> (i - 1) & 1) == 0) {
+                for (int k = 1; k < n; k++) {
+                    if ((j >> (k - 1) & 1) == 1) {
+                        int new_state = j ^ (1 << (k - 1));
+                        dp[i][j] = std::min(dp[i][j], price[i][k] + dp[k][new_state]);
+                    }
+                }
+            }
+        }
+    }
+    std::cout << dp[0][all - 1] << std::endl;
     return 0;
 }

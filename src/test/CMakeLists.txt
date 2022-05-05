@@ -17,6 +17,8 @@ add_executable(bytedance_practice1_solution2 bytedance/practice1/solution2.cpp)
 add_executable(bytedance_practice1_solution3 bytedance/practice1/solution3.cpp)
 add_executable(bytedance_practice1_solution4 bytedance/practice1/solution4.cpp)
 add_executable(bytedance_practice1_solution5 bytedance/practice1/solution5.cpp)
+add_executable(bytedance_practice1_solution6 bytedance/practice1/solution6.cpp)
+add_executable(bytedance_practice1_solution7 bytedance/practice1/solution7.cpp)
 
 # 美团
 add_executable(meituan_solution1 meituan/solution1.cpp)
