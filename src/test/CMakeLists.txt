@@ -14,6 +14,9 @@ add_executable(baidu_2020_xiaozhao3_solution2 baidu/2020_xiaozhao3_solution2.cpp
 # 联系1
 add_executable(bytedance_practice1_solution1 bytedance/practice1/solution1.cpp)
 add_executable(bytedance_practice1_solution2 bytedance/practice1/solution2.cpp)
+add_executable(bytedance_practice1_solution3 bytedance/practice1/solution3.cpp)
+add_executable(bytedance_practice1_solution4 bytedance/practice1/solution4.cpp)
+add_executable(bytedance_practice1_solution5 bytedance/practice1/solution5.cpp)
 
 # 美团
 add_executable(meituan_solution1 meituan/solution1.cpp)
