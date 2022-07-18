@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(leetcode_cpp)
 
 add_subdirectory(temp)
-add_subdirectory(src/nowcoder)
+add_subdirectory(src/test)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -165,6 +165,7 @@ add_executable(offer58-1 src/offer/offer58-1.cpp)
 add_executable(offer58-2 src/offer/offer58-2.cpp)
 add_executable(offer63 src/offer/offer63.cpp)
 
-# codetop
-
-add_subdirectory(src/test)
+# nowcoder
+# offer
+add_executable(JZ3 src/nowcoder/offer/array/JZ3_FindDuplicateNumber.cpp)
+add_executable(JZ6 src/nowcoder/offer/lists/JZ6_PrintListNumberReversely.cpp)
