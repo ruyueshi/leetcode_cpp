@@ -169,3 +169,4 @@ add_executable(offer63 src/offer/offer63.cpp)
 # offer
 add_executable(JZ3 src/nowcoder/offer/array/JZ3_FindDuplicateNumber.cpp)
 add_executable(JZ6 src/nowcoder/offer/lists/JZ6_PrintListNumberReversely.cpp)
+add_executable(JZ26 src/nowcoder/offer/lists/JZ26_ReverseAnList.cpp)
