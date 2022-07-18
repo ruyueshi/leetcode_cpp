@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(leetcode_cpp)
 
 add_subdirectory(temp)
+add_subdirectory(src/nowcoder)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
