@@ -169,6 +169,7 @@ add_executable(offer63 src/offer/offer63.cpp)
 # offer
 add_executable(JZ3 src/nowcoder/offer/array/JZ3_FindDuplicateNumber.cpp)
 add_executable(JZ6 src/nowcoder/offer/lists/JZ6_PrintListNumberReversely.cpp)
+add_executable(JZ18 src/nowcoder/offer/lists/JZ18_DeleteNode.cpp)
 add_executable(JZ22 src/nowcoder/offer/lists/JZ22_FindKthNodeReversely.cpp)
 add_executable(JZ23 src/nowcoder/offer/lists/JZ23_FindEntryNodeOfRingList.cpp)
 add_executable(JZ25 src/nowcoder/offer/lists/JZ25_MergeTwoSortedLists.cpp)
