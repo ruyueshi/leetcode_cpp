@@ -204,6 +204,7 @@ add_executable(JZ36 src/nowcoder/offer/tree/JZ36_ConvertBinarySearchTreeToList.c
 add_executable(JZ37 src/nowcoder/offer/tree/JZ37_SerializeAndDeserialize.cpp)
 add_executable(JZ54 src/nowcoder/offer/tree/JZ54_KthNodeOfBinarySearchTree.cpp)
 add_executable(JZ55 src/nowcoder/offer/tree/JZ55_MaxDepthOfTree.cpp)
+add_executable(JZ68 src/nowcoder/offer/tree/JZ68_LowestCommonAncestor.cpp)
 add_executable(JZ77 src/nowcoder/offer/tree/JZ77_PrintTree.cpp)
 add_executable(JZ78 src/nowcoder/offer/tree/JZ78_PrintTreeBFS.cpp)
 add_executable(JZ79 src/nowcoder/offer/tree/JZ79_JudgeBalanceTree.cpp)
