@@ -74,8 +74,25 @@ private:
     }
 };
 
+// 数学方法
+// 非常精妙、简洁
+class SolutionV3 {
+public:
+    bool isPalindrome(ListNode *head) {
+        unsigned long long s1 = 0, s2 = 0, t = 1;
+        auto p = head;
+        while (p) {
+            s1 = s1 * 10 + p->val;
+            s2 = p->val * t + s2;
+            t *= 10;
+            p = p->next;
+        }
+        return s1 == s2;
+    }
+};
+
 int main() {
-    SolutionV2 s;
+    SolutionV3 s;
     std::vector<int> num = {1, 2, 3, 3, 2, 1};
     ListNode *l = new ListNode(num[0]);
     ListNode *p = l;
