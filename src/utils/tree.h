@@ -4,6 +4,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <climits>
 
 struct TreeNode {
     int val;

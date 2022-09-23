@@ -210,6 +210,7 @@ add_executable(JZ77 src/nowcoder/offer/tree/JZ77_PrintTree.cpp)
 add_executable(JZ78 src/nowcoder/offer/tree/JZ78_PrintTreeBFS.cpp)
 add_executable(JZ79 src/nowcoder/offer/tree/JZ79_JudgeBalanceTree.cpp)
 add_executable(JZ82 src/nowcoder/offer/tree/JZ82_JudgeDefinedSumOnPathOfTree.cpp)
+add_executable(JZ84 src/nowcoder/offer/tree/JZ84_FindPathOfTree3.cpp)
 
 add_executable(temp src/test/temp.cpp)
 add_executable(FindKminNumber src/nowcoder/test/FindKminNumber.cpp)
