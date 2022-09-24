@@ -196,6 +196,7 @@ add_executable(JZ9 src/nowcoder/offer/queue_stack/JZ9_TwoStackImplementQueue.cpp
 add_executable(JZ30 src/nowcoder/offer/queue_stack/JZ30_StackWithMin.cpp)
 add_executable(JZ31 src/nowcoder/offer/queue_stack/JZ31_StackPushPopOrder.cpp)
 add_executable(JZ73 src/nowcoder/offer/queue_stack/JZ73_ReverseWordSequence.cpp)
+add_executable(JZ59 src/nowcoder/offer/queue_stack/JZ59_MaxValueInSlidingWindows.cpp)
 add_executable(JZ12 src/nowcoder/offer/traceback/JZ12_MatrixPath.cpp)
 add_executable(JZ13 src/nowcoder/offer/traceback/JZ13_RobotMoveRange.cpp)
 add_executable(JZ7 src/nowcoder/offer/tree/JZ7_RebuildBinaryTree.cpp)
